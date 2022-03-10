@@ -1,0 +1,13 @@
+<?php
+// @codingStandardsIgnoreFile
+/**
+ * @var $block \Ablr\Payment\Block\Info\Method
+ */
+?>
+<?php
+$_info = $block->getInfo();
+?>
+
+<?php echo $block->escapeHtml($block->getMethod()->getTitle()) ?>
+{{pdf_row_separator}}
+

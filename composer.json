@@ -1,0 +1,26 @@
+{
+    "name": "ablr-com/magento2",
+    "description": "Ablr payment extension for Magento",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "OSL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Ablr\\Payment\\": ""
+        }
+    },
+    "require": {
+        "php": ">=7.0",
+        "ext-curl": "*",
+        "ext-openssl": "*"
+    },
+    "require-dev": {
+        "phpcompatibility/php-compatibility": "^9.3.5",
+        "magento/magento-coding-standard": "^6.0"
+    }
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <ablr>
+                <active>1</active>
+                <model>Ablr\Payment\Model\Method</model>
+                <title>Ablr</title>
+                <sandbox>0</sandbox>
+                <store_id>0</store_id>
+                <secret_api_key>0</secret_api_key>
+                <allowspecific>0</allowspecific>
+            </ablr>
+        </payment>
+    </default>
+</config>

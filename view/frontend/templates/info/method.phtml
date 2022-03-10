@@ -1,0 +1,13 @@
+<?php
+// @codingStandardsIgnoreFile
+/**
+ * @var $block \Ablr\Payment\Block\Info\Method
+ */
+?>
+<?php
+$_info = $block->getInfo();
+?>
+
+<dl class="payment-method ablr">
+        <?php echo $block->escapeHtml($block->getMethod()->getTitle()) ?><br/>
+</dl>
