@@ -67,8 +67,6 @@ class Index extends Action
 
     public function execute()
     {
-        //https://office.frozen.zone/magento2/ablr/payment/index/
-
         $session = $this->checkoutHelper->getCheckout();
 
         try {

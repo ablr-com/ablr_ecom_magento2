@@ -129,13 +129,6 @@ class Complete extends Action
      */
     public function execute()
     {
-        // https://office.frozen.zone/magento2/ablr/payment/complete/?checkout_id=CKT-AFYE6HQW24C&order_state=approved&order_code=ODR-GJYDY47Z9VL
-        $orderKey = $this->getRequest()->getParam('order_key');
-        //$incrementId = $this->helper->decryptData($orderKey);
-        //$order = $this->orderFactory->create()->loadByIncrementId($incrementId);
-
-        //var_dump($orderKey, $incrementId, $order->getId()); exit();
-
         $session = $this->checkoutHelper->getCheckout();
 
         try {
