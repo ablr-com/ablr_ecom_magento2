@@ -22,10 +22,10 @@ jobs:
       - name: Install dependencies
         uses: shivammathur/setup-php@master
         with:
-          php-version: '7.3'
+          php-version: '7.4'
           extension: intl, mbstring, json, bcmath, sodium, zip
           coverage: xdebug
-          tools: composer, php-cs-fixer, phpunit:7.5.19, phpcpd, phpmd
+          tools: composer, phpcs, phpunit:7.5.19, phpcpd, phpmd
 
       - name: Install tools
         run: |
@@ -35,14 +35,14 @@ jobs:
           composer global require magento/magento-coding-standard
           composer global require phpmd/phpmd
           composer global require sebastian/phpcpd
-          php ~/.composer/vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/phpcompatibility/php-compatibility/PHPCompatibility
-          php ~/.composer/vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/magento/magento-coding-standard/Magento2
 
       - name: Run PHPCS inspection
         run: |
           cd $GITHUB_WORKSPACE/module
+          php ~/.composer/vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/phpcompatibility/php-compatibility/PHPCompatibility
+          php ~/.composer/vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/magento/magento-coding-standard/Magento2
           php ~/.composer/vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1 --standard=PSR2 ./ --ignore=./.github
-          php ~/.composer/vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1 --standard=~/.composer/vendor/magento/magento-coding-standard/Magento2/ruleset.xml --extensions=php,phtml ./  --ignore=./.github
+          php ~/.composer/vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1 --standard=Magento2 --extensions=php,phtml ./ --ignore=./.github
       - name: Run PHPMD inspection
         run: |
             cd $GITHUB_WORKSPACE/module
