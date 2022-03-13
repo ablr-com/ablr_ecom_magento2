@@ -40,9 +40,9 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/module
           php ~/.composer/vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/phpcompatibility/php-compatibility/PHPCompatibility
-          php ~/.composer/vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/magento/magento-coding-standard/Magento2
+          #php ~/.composer/vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/magento/magento-coding-standard/Magento2
           php ~/.composer/vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1 --standard=PSR2 ./ --ignore=./.github
-          php ~/.composer/vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1 --standard=Magento2 --extensions=php,phtml ./ --ignore=./.github
+          php ~/.composer/vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1 --standard=~/.composer/vendor/magento/magento-coding-standard/Magento2/ruleset.xml --extensions=php,phtml ./ --ignore=./.github
       - name: Run PHPMD inspection
         run: |
             cd $GITHUB_WORKSPACE/module
