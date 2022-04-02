@@ -12,6 +12,7 @@ use Magento\Sales\Api\Data\OrderInterface;
 use Magento\Framework\HTTP\Client\Curl;
 use Magento\Framework\Serialize\Serializer\Json;
 use Ablr\Payment\Logger\Logger;
+use Ablr\Payment\Model\SourceData;
 
 class Api extends AbstractHelper
 {
@@ -45,6 +46,11 @@ class Api extends AbstractHelper
      */
     private $helper;
 
+    /**
+     * @var SourceData
+     */
+    private $sourceData;
+
     public function __construct(
         Context $context,
         Config $config,
@@ -52,7 +58,8 @@ class Api extends AbstractHelper
         Json $json,
         Logger $logger,
         UrlInterface $urlBuilder,
-        Helper $helper
+        Helper $helper,
+        SourceData $sourceData
     ) {
         $this->config = $config;
         $this->curl = $curl;
@@ -60,6 +67,7 @@ class Api extends AbstractHelper
         $this->logger = $logger;
         $this->urlBuilder = $urlBuilder;
         $this->helper = $helper;
+        $this->sourceData = $sourceData;
 
         parent::__construct($context);
     }
@@ -92,8 +100,9 @@ class Api extends AbstractHelper
                     'order_key' => $this->helper->encryptData($order->getIncrementId())
                 ]
             ),
+            'source' => 'magento2',
+            'source_data' => $this->sourceData->export($order)->getData()
         ];
-
 
         $this->logger->info('POST ' . $url, $params);
         $this->curl->addHeader('Content-Type', 'application/json');

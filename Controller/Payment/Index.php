@@ -62,7 +62,7 @@ class Index extends Action
         $this->orderFactory = $orderFactory;
         $this->api = $api;
         $this->logger = $logger;
-        $this->orderRepository  = $orderRepository;
+        $this->orderRepository = $orderRepository;
     }
 
     public function execute()
