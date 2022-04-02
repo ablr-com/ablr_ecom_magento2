@@ -170,6 +170,8 @@ class SourceData extends DataObject
      * @param OrderInterface $order
      *
      * @return array
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     * @SuppressWarnings(PHPMD.ElseExpression)
      */
     private function getItems(OrderInterface $order)
     {
@@ -261,6 +263,8 @@ class SourceData extends DataObject
      *   - discount_excl_tax
      * @param OrderInterface $order
      * @return DataObject
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     * @SuppressWarnings(PHPMD.ElseExpression)
      */
     private function getOrderDiscountData(OrderInterface $order)
     {
