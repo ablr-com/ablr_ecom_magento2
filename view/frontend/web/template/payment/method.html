@@ -20,7 +20,7 @@
         </div>
         <fieldset class="fieldset" data-bind='attr: {id: "payment_form_" + getCode()}'>
             <div class="payment-method-note">
-                <!-- ko text: $t('You will be redirected to payment gateway website when you place an order.') --><!-- /ko -->
+                <!-- ko text: $t('Pay on your terms with no hidden costs, no late fees, no surprises. Credit verification and down payment may be required.') --><!-- /ko -->
             </div>
         </fieldset>
         <div class="checkout-agreements-block">
@@ -38,7 +38,7 @@
                         enable: (getCode() == isChecked())
                         "
                         disabled>
-                    <span data-bind="text: $t('Continue with Ablr')"></span>
+                    <span data-bind="text: $t('Pay with Ablr')"></span>
                 </button>
             </div>
         </div>
