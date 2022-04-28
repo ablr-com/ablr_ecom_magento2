@@ -22,7 +22,7 @@
                 </field>
 
                 <field id="store_id" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Store API ID</label>
+                    <label>Store ID</label>
                     <config_path>payment/ablr/store_id</config_path>
                 </field>
 

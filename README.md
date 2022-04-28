@@ -1,34 +1,39 @@
-# Ablr payment extension for Magento
+# Ablr payment extension for Magento 2
 
 ## Installation
 
-### Composer
+### Install using Composer
 
-1. Go to Magento2 root folder
-2. Enter following commands to install extension:
+1. Open Command Line Interface (CLI) and navigate to the Magento directory on your server
+2. Run the following command to install the Ablr extension:
 
    ```bash
    composer require ablr-com/magento2
    ```
 
-   Wait while dependencies are updated.
-
-3. Enter following commands to enable extension:
+3. Enter following commands to enable the Ablr extension:
 
    ```bash
+   # Enable Ablr_Payment module
    php bin/magento module:enable Ablr_Payment --clear-static-content
+   # Update the database schema and data
    php bin/magento setup:upgrade
-   php bin/magento cache:clean
    ```
 
 4. If Magento is running in "production" mode, then also execute:
+
    ```bash
+   # Compile dependency injection code
    php bin/magento setup:di:compile
+   # Deploy static content
    php bin/magento setup:static-content:deploy
+   # Clean the cache
+   php bin/magento cache:clean
    ```
-5. Configure extension as per configuration instructions
 
+## Configure the Ablr extension
 
-## Configuration
 1. Log in to Magento Admin
-2. Go to Stores > Configuration > Sales > Payment Methods > Ablr Gateway and configure settings
+2. Go to Stores > Configuration > Sales > Payment Methods > Ablr Gateway
+3. Enter the Store ID and Secret API Key provided by Ablr
+4. Sandbox is for testing on the staging environment. Remember to select "**No**" for Sandbox to start accepting real transactions on your live website).
