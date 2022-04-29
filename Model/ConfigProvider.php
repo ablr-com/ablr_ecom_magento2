@@ -3,6 +3,7 @@
 namespace Ablr\Payment\Model;
 
 use Magento\Checkout\Model\ConfigProviderInterface;
+use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Model\Context;
 use Magento\Payment\Helper\Data as PaymentHelper;
 use Ablr\Payment\Model\Method;
@@ -28,6 +29,7 @@ class ConfigProvider implements ConfigProviderInterface
 
     /**
      * {@inheritdoc}
+     * @SuppressWarnings(MEQP2.Classes.ObjectManager.ObjectManagerFound)
      */
     public function getConfig()
     {
@@ -43,10 +45,14 @@ class ConfigProvider implements ConfigProviderInterface
             //
         }
 
+        $assetRepo = ObjectManager::getInstance()->create(\Magento\Framework\View\Asset\Repository::class);
+
         return [
             'payment' => [
                 Method::METHOD_CODE => [
-                    'redirect_url' => $redirectUrl
+                    'redirect_url' => $redirectUrl,
+                    'logo' => $assetRepo->getUrl('Ablr_Payment::images/logo.svg'),
+                    'alt' => __('Ablr')
                 ],
             ],
         ];

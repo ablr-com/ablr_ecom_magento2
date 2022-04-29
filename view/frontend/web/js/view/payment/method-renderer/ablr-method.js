@@ -43,6 +43,14 @@ define(
 
                     return false;
                 }
+            },
+
+            getLogo: function () {
+                return window.checkoutConfig.payment.ablr.logo;
+            },
+
+            getAlt: function () {
+                return window.checkoutConfig.payment.ablr.alt;
             }
         });
     }
