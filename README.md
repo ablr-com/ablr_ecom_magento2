@@ -31,6 +31,27 @@
    php bin/magento cache:clean
    ```
 
+### Manual installation
+
+1. Clone repository with extension:
+   ```bash
+   git clone https://github.com/ablr-com/ablr_ecom_magento2
+   ```
+
+2. Move extension files to {magento_root}/app/code/Ablr/Payment directory:
+   ```bash
+   mkdir -p /app/code/Ablr/Payment
+   mv ablr_ecom_magento2/* /app/code/Ablr/Payment/
+   ```   
+
+3. Go to magento root directory and enter following commands to enable module:
+
+   ```bash
+   php bin/magento module:enable Ablr_Payment --clear-static-content
+   php bin/magento setup:upgrade
+   php bin/magento cache:clean
+   ```
+
 ## Configure the Ablr extension
 
 1. Log in to Magento Admin
