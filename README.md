@@ -2,7 +2,7 @@
 
 ## Installation
 
-### Install using Composer
+### Install using Composer (Recommended)
 
 1. Open Command Line Interface (CLI) and navigate to the Magento directory on your server
 2. Run the following command to install the Ablr extension:
@@ -28,6 +28,33 @@
    # Deploy static content
    php bin/magento setup:static-content:deploy
    # Clean the cache
+   php bin/magento cache:clean
+   ```
+
+### Manual installation
+
+Note that [MAGENTO_ROOT] refers to the root folder where Magento is installed.
+
+1. Clone repository with extension:
+   ```bash
+   git clone https://github.com/ablr-com/ablr_ecom_magento2
+   ```
+
+2. Create directory `Ablr/Payment` in [MAGENTO_ROOT]/app/code/
+   ```bash
+   mkdir -p [MAGENTO_ROOT]/app/code/Ablr/Payment
+   ```
+   
+3. Copy extension files to `Ablr/Payment` directory:
+   ```bash
+   cp ablr_ecom_magento2/* [MAGENTO_ROOT]/app/code/Ablr/Payment/
+   ```   
+
+4. Go to [MAGENTO_ROOT] and enter following commands to enable module:
+
+   ```bash
+   php bin/magento module:enable Ablr_Payment --clear-static-content
+   php bin/magento setup:upgrade
    php bin/magento cache:clean
    ```
 
